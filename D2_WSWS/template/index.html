@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DeepSchick</title>
+    <link rel="icon" href="{% static 'images/fav.png' %}" type="image/gif" sizes="16x16">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="container">
+        <div class="row mx-0 w-100 form-main-row">
+            <div class="form-div-main">
+                <h2 class="col-12 text-center">PRT-D2 Replacer v0.1</h2>
+                <form action="." method="POST" class="w-100"
+                      id="sheet-form"
+                      enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row mx-0 w-100">
+                        <div class="form-group w-100 file-field">
+                            <h6>D2-PMI Register</h6>
+                            <label for="file1">
+                                <span class="choose-file">Choose file</span>
+                                <span class="no-file">No File chosen</span>
+                            </label>
+                            <input class="file" id="file1" required type="file" name="lmi" style="display: none">
+                        </div>
+                    </div>
+                    <div class="row mx-0 w-100">
+                        <div class="form-group w-100 file-field">
+                            <h6>WSWS</h6>
+                            <label for="file2">
+                                <span class="choose-file">Choose file</span>
+                                <span class="no-file">No File chosen</span>
+                            </label>
+                            <input class="file" id="file2" required type="file" name="cl" style="display: none">
+                        </div>
+                    </div>
+                    <div class="row mx-0 w-100">
+                        <button id="submit-btn" type="button">Submit</button>
+                    </div>
+                </form>
+               <!-- {% if files %} -->
+                   <ul class="list-inline">
+                       <!-- {% for file in files %} -->
+                            <li>
+                                <a class="download-btn" target="_blank" href="{{ file.url }}">Download D2-PMI </a>
+                            </li>
+                    <!--   {% endfor %} -->
+                   </ul>
+               <!-- {% endif %} -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+<script>
+  $(document).ready(function () {
+    $(document).on('change', '.file', function () {
+      var name = $(this)[0].files[0].name;
+      $(this).parent('.file-field').find('.no-file').text(name);
+    });
+    $(document).on('click', '#submit-btn', function () {
+      $(this).text('loading...');
+      $("#sheet-form").submit();
+    })
+  })
+
+</script>
+</body>
+</html>

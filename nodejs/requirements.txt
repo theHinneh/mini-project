@@ -1,0 +1,16 @@
+What are we trying to do here:
+
+We have basically 3 different webtools(basically python code) hosted on Django.
+
+The idea is to create a one simple interface that connects all the 3 websites
+
+
+End Game:
+
+A simple UI from which we can click and run all the  tools.
+ Instead of having them seperatly.
+
+
+Tools:
+Any programming language that can be used to interface with the 
+current system to solve the problem with minimal changes will be good.

@@ -1,0 +1,40 @@
+/** @format */
+body {
+  margin: 0;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.redirecs {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  padding: 100px 0 0 0;
+
+  /* width: 100vw !important;
+  height: 10vh !important; */
+}
+
+.redirecs form {
+  margin: 0 40px;
+}
+
+#heading {
+  font-size:35px;
+}
+
+button {
+  font-size: 30px;
+  padding: 30px;
+  background-color: orange;
+  border-radius: 15px;
+}
